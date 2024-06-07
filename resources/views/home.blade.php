@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    
+
         <!-- banner section start -->
         <div class="banner_section layout_padding">
             <div id="main_slider" class="carousel slide" data-ride="carousel">
@@ -123,8 +123,8 @@
           </div>
        </div>
        <div class="read_btn_main">
-          <div class="read_bt"><a href="buyer.html">Buyer</a></div>
-          <div class="read_bt"><a href="seller.html">Seller</a></div>
+          <div class="read_bt"><a href="{{ route('register') }}">Buyer</a></div>
+          <div class="read_bt"><a href="{{ route('register') }}">Seller</a></div>
        </div>
     </div>
  </div>

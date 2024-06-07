@@ -67,30 +67,7 @@
                                 @enderror
                             </div>
 
-                            <div class="col-span-full">
-                                <label for="role" class="block text-sm font-medium leading-6 text-gray-900">
-                                    Role
-                                </label>
-                                <div class="mt-2">
-                                    <select id="role" name="role"
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                        @foreach ($roles as $role)
-                                            <option value="{{ $role->value }}"
-                                                {{ ($user && old('role', $user?->role?->value) == $role->value ? 'selected' : '') }}>
-                                                {{ ucwords(str_replace('_', ' ', Str::snake($role->name))) }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <p class="mt-3 text-sm leading-6 text-gray-600">
-                                    Role of the user.
-                                </p>
-                                @error('role')
-                                    <p class="mt-3 text-sm leading-6 text-red-600">
-                                        {{ $message }}
-                                    </p>
-                                @enderror
-                            </div>
+
 
                         </div>
                     </div>

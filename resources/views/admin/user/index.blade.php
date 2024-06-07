@@ -1,5 +1,8 @@
 <x-app-layout>
 
+
+
+
     <div class="container mx-auto mt-1">
         <div class="px-4 sm:px-6 lg:px-8 bg-white pt-4">
 
@@ -17,14 +20,14 @@
                                 clip-rule="evenodd" fill-rule="evenodd"></path>
                         </svg>
                     </span>
-                </div> 
+                </div>
             @endif
 
             <div class="sm:flex sm:items-center">
                 <div class="sm:flex-auto">
-                    <h1 class="text-base font-semibold leading-6 text-gray-900">Product Categories</h1>
+                    <h1 class="text-base font-semibold leading-6 text-gray-900">User Management</h1>
                     <p class="mt-2 text-sm text-gray-700">
-                        A list of all the product categories in your account including their name, slug and actions.
+                        A list of all the product users in your account including their name, slug and actions.
                     </p>
                 </div>
                 <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
@@ -79,7 +82,7 @@
                                         <td
                                             class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                                             <div class="flex gap-3">
-                                                
+
                                                 <a href="{{ route('user.edit', $user->id) }}"
                                                     class="rounded bg-white px-2 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Edit</a>
                                                 <form

@@ -14,26 +14,17 @@ class ProductCategorySeeder extends Seeder
     {
         $deliveryServices = array(
             array(
-                'name' => 'Margherita',
-                'price' => 10.99,
-                'description' => 'Classic pizza with tomato sauce, fresh mozzarella, and basil.'
+                'name' => 'Food & Beverages',
+                'description' => 'Food'
             ),
             array(
-                'name' => 'Pepperoni',
-                'price' => 12.99,
-                'description' => 'Pizza topped with pepperoni slices, tomato sauce, and mozzarella cheese.'
+                'name' => 'Electronics',
+                'description' => 'Electric badu'
             ),
             array(
-                'name' => 'Vegetarian',
-                'price' => 11.99,
-                'description' => 'Pizza loaded with fresh vegetables such as bell peppers, mushrooms, onions, and olives.'
+                'name' => 'Clothes',
+                'description' => 'Cloth'
             ),
-            array(
-                'name' => 'BBQ Chicken',
-                'price' => 13.99,
-                'description' => 'Pizza featuring barbecue sauce, grilled chicken, red onions, and mozzarella cheese.'
-            ),
-            
         );
 
         foreach ($deliveryServices as $food) {
@@ -41,7 +32,6 @@ class ProductCategorySeeder extends Seeder
                 'name' => $food['name'],
                 'slug' => \Illuminate\Support\Str::slug($food['name']),
                 'description' => $food['description'],
-                'price' => $food['price'],
             ]);
           }
     }

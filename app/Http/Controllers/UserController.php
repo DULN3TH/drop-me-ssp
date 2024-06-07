@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Enums\Role;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -35,12 +37,13 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'role' => 'required'
-        ]);
+        'name' => 'required',
+        'email' => 'required|email|unique:users,email',
+        'role' => ['required', Rule::in(Role::cases())]
+    ]);
 
         $validated['password'] = bcrypt('password');
+
 
         User::create($validated);
 
@@ -90,5 +93,18 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('user.index')->with('success', 'User successfully deleted.');
+    }
+
+    public function shop(){
+        {
+            // Fetch products from the 'products' table in the 'drop_me' database
+            $products = DB::connection('drop_me')
+                ->table('users')
+                ->where('role', '=',2 )
+                ->get();
+
+            // Return view with product data
+            return view('pages.shops', ['products' => $products]);
+        }
     }
 }

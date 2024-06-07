@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ProductCategory;
 use App\Http\Requests\StoreProductCategoryRequest;
 use App\Http\Requests\UpdateProductCategoryRequest;
+use Illuminate\Support\Facades\DB;
 
 class ProductCategoryController extends Controller
 {
@@ -62,7 +63,9 @@ class ProductCategoryController extends Controller
      */
     public function update(UpdateProductCategoryRequest $request, ProductCategory $productCategory)
     {
-        //
+        $productCategory->update($request->all());
+
+        return redirect()->route('product-category.index')->with('success', 'Product category successfully updated.');
     }
 
     /**
@@ -71,8 +74,17 @@ class ProductCategoryController extends Controller
     public function destroy(ProductCategory $productCategory)
     {
         $productCategory->delete();
-    
+
         return redirect()->route('product-category.index')->with('success', 'Product category successfully deleted.');
+    }
+
+    public function product()
+    {
+//        $data=drop_me::all();
+//
+//        return view('pages.pizzahut');
+        $data = DB::connection('drop_me')->table('products')->get();
+        return view('pages.pizzahut', ['data' => $data]);
     }
 
 }
